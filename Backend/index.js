@@ -11,24 +11,27 @@ import { app, server } from "./SocketIO/server.js";
 dotenv.config();
 
 // middleware
+const corsOptions = {
+    origin: "https://chatwebapp-chi.vercel.app", // Your Vercel frontend URL
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // Use Vercel's port or fallback to 3001
 const URI = process.env.MONGODB_URI;
 
-try {
-    mongoose.connect(URI);
-    console.log("Connected to MongoDB");
-} catch (error) {
-    console.log(error);
-}
+mongoose.connect(URI)
+    .then(() => console.log("Connected to MongoDB"))
+    .catch(error => console.error("MongoDB connection error:", error));
 
-//routes
+// routes
 app.use("/api/user", userRoute);
 app.use("/api/message", messageRoute);
 
+// Start the server
 server.listen(PORT, () => {
     console.log(`Server is Running on port ${PORT}`);
 });
