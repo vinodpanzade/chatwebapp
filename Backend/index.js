@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 3001; // Use Vercel's port or fallback to 3001
+const PORT = process.env.PORT ; // Use Vercel's port or fallback to 3001
 const URI = process.env.MONGODB_URI;
 
 mongoose.connect(URI)
