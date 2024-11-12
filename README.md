@@ -6,6 +6,8 @@ Instant Messaging: Powered by Socket.io, enabling real-time communication betwee
 Modern Frontend Design: Custom components styled with CSS and SCSS for a visually appealing and user-friendly interface.
 Robust Backend: Node.js and Express handle backend logic efficiently, ensuring secure and reliable server performance.
 Database Management: MongoDB provides scalable, fast data storage for seamless message handling.
+
+
 🛠 Tech Stack
 Frontend: React, CSS, SCSS, custom components
 Backend: Node.js, Express, Socket.io
